@@ -1,0 +1,39 @@
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <changeSet id="2020-03-31" author="d.dmitrievich">
+       <createTable tableName="city">
+           <column name="id" type="int">
+               <constraints primaryKey="true"/>
+           </column>
+       </createTable>
+
+        <createTable tableName="branch">
+            <column name="id" type="int">
+                <constraints primaryKey="true"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="city_branch">
+<!--            <column name="id" type="int">-->
+<!--                <constraints primaryKey="true"/>-->
+<!--            </column>-->
+
+            <column name="city_id" type="int"/>
+            <column name="branch_id" type="int"/>
+            <column name="enabled" type="boolean"/>
+
+        </createTable>
+
+        <addForeignKeyConstraint baseColumnNames="city_id" baseTableName="city_branch"
+                                 constraintName="fkey1"
+                                 referencedColumnNames="id" referencedTableName="city"/>
+
+        <addForeignKeyConstraint baseColumnNames="branch_id" baseTableName="city_branch"
+                                 constraintName="fkey2"
+                                 referencedColumnNames="id" referencedTableName="branch"/>
+    </changeSet>
+
+</databaseChangeLog>
