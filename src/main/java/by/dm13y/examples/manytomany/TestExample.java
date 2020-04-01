@@ -1,6 +1,7 @@
 package by.dm13y.examples.manytomany;
 
 import by.dm13y.examples.manytomany.v1.service.TestHandler;
+import by.dm13y.examples.manytomany.v2.service.TestHandler2;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
@@ -12,11 +13,15 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class TestExample {
     private final TestHandler testHandler1;
+    private final TestHandler2 testHandler2;
 
     @EventListener(ApplicationReadyEvent.class)
     public void start() {
         testHandler1.init();
         testHandler1.test();
+
+        testHandler2.init();
+        testHandler2.test();
     }
 
 }
