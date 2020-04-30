@@ -1,5 +1,6 @@
-package by.dm13y.examples.manytomany;
+package by.dm13y.examples;
 
+import by.dm13y.examples.jpa.entity2table.service.CityTestExecutor;
 import by.dm13y.examples.manytomany.v1.service.TestHandler;
 import by.dm13y.examples.manytomany.v2.service.TestHandler2;
 import lombok.RequiredArgsConstructor;
@@ -14,6 +15,7 @@ import org.springframework.stereotype.Component;
 public class TestExample {
     private final TestHandler testHandler1;
     private final TestHandler2 testHandler2;
+    private final CityTestExecutor cityTestExecutor;
 
     @EventListener(ApplicationReadyEvent.class)
     public void start() {
@@ -22,6 +24,8 @@ public class TestExample {
 
         testHandler2.init();
         testHandler2.test();
+
+        cityTestExecutor.execute();
     }
 
 }

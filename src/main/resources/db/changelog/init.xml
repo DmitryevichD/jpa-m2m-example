@@ -36,4 +36,23 @@
                                  referencedColumnNames="id" referencedTableName="branch"/>
     </changeSet>
 
+    <changeSet id="2020-04-30" author="d.dmitrievich">
+        <createTable tableName="common_table">
+            <column name="id" type="int">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="is_common" type="BOOLEAN"/>
+            <column name="ext_info" type="VARCHAR(255)"/>
+        </createTable>
+
+
+        <loadUpdateData tableName="common_table"
+                        primaryKey="id"
+                        relativeToChangelogFile="true"
+                        file="../data/common_table.csv"
+                        separator="|" quotchar=""/>
+
+    </changeSet>
+
 </databaseChangeLog>

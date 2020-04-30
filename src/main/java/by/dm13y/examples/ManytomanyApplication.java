@@ -1,4 +1,4 @@
-package by.dm13y.examples.manytomany;
+package by.dm13y.examples;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

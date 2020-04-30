@@ -1,0 +1,6 @@
+id|name|is_common|ext_info
+1|common_1|true|
+2|common_2|true|
+3|common_3|true|
+4|ext_1|false|additional_info
+5|ext_2|false|additional_info
